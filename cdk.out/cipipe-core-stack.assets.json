@@ -1,0 +1,19 @@
+{
+  "version": "21.0.0",
+  "files": {
+    "540e2f8b7e20ca379a334367e1250761b9d766882d7f00e7c70982893e246c85": {
+      "source": {
+        "path": "cipipe-core-stack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "540e2f8b7e20ca379a334367e1250761b9d766882d7f00e7c70982893e246c85.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
