@@ -1,0 +1,4 @@
+# Make use of the internal PyPi repository.  It will include both
+# modules proxied to PyPi, as well as any internal modules that
+# have been developed
+aws_cdk_lib
