@@ -1,16 +1,17 @@
 {
   "version": "21.0.0",
   "files": {
-    "540e2f8b7e20ca379a334367e1250761b9d766882d7f00e7c70982893e246c85": {
+    "11849d5e9315017439c5eaa152e848e5082747075ac9ea2e5afea67b22822e2b": {
       "source": {
         "path": "cipipe-core-stack.template.json",
         "packaging": "file"
       },
       "destinations": {
-        "current_account-current_region": {
-          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
-          "objectKey": "540e2f8b7e20ca379a334367e1250761b9d766882d7f00e7c70982893e246c85.json",
-          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        "800446947915-us-west-2": {
+          "bucketName": "cdk-hnb659fds-assets-800446947915-us-west-2",
+          "objectKey": "11849d5e9315017439c5eaa152e848e5082747075ac9ea2e5afea67b22822e2b.json",
+          "region": "us-west-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::800446947915:role/cdk-hnb659fds-file-publishing-role-800446947915-us-west-2"
         }
       }
     }

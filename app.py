@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
 import sys
-from aws_cdk import App
+from aws_cdk import (
+    App,
+    Environment as _environment
+)
+
 from serverlessci_infra.serverlessci_infra_stack import ApplicationStack
 from jproperties import Properties  
 
@@ -35,8 +39,12 @@ def loadProperties():
 
 
 loadProperties()
+
+serverless_ci_env = _environment(account=stack_config['aws.account'], region=stack_config['aws.region'])
 app = App()
 ApplicationStack(app, "cipipe-core-stack",
-     stack_config=stack_config)
+     stack_config=stack_config,
+     env=serverless_ci_env
+)
 
 app.synth()

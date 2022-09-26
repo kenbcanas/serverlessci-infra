@@ -17,20 +17,20 @@
     },
     "cipipe-core-stack": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://unknown-account/unknown-region",
+      "environment": "aws://800446947915/us-west-2",
       "properties": {
         "templateFile": "cipipe-core-stack.template.json",
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/540e2f8b7e20ca379a334367e1250761b9d766882d7f00e7c70982893e246c85.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::800446947915:role/cdk-hnb659fds-deploy-role-800446947915-us-west-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::800446947915:role/cdk-hnb659fds-cfn-exec-role-800446947915-us-west-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-800446947915-us-west-2/11849d5e9315017439c5eaa152e848e5082747075ac9ea2e5afea67b22822e2b.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
           "cipipe-core-stack.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "arn": "arn:${AWS::Partition}:iam::800446947915:role/cdk-hnb659fds-lookup-role-800446947915-us-west-2",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         }
@@ -39,16 +39,48 @@
         "cipipe-core-stack.assets"
       ],
       "metadata": {
+        "/cipipe-core-stack/FSXSubnet": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "No routeTableId was provided to the subnet 'subnet-e3808aa8'. Attempting to read its .routeTable.routeTableId will return null/undefined. (More info: https://github.com/aws/aws-cdk/pull/3171)",
+            "trace": [
+              "Annotations.addMessage (/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/jsii-kernel-J3GoG0/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1213)",
+              "Annotations.addWarning (/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/jsii-kernel-J3GoG0/node_modules/aws-cdk-lib/core/lib/annotations.js:1:600)",
+              "new ImportedSubnet (/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/jsii-kernel-J3GoG0/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:27855)",
+              "Function.fromSubnetAttributes (/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/jsii-kernel-J3GoG0/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:18537)",
+              "Function.fromSubnetId (/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/jsii-kernel-J3GoG0/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:18623)",
+              "/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/tmpjogb5j7h/lib/program.js:5465:144",
+              "exports.Kernel._ensureSync (/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/tmpjogb5j7h/lib/program.js:5871:28)",
+              "exports.Kernel.sinvoke (/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/tmpjogb5j7h/lib/program.js:5465:93)",
+              "exports.KernelHost.processRequest (/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/tmpjogb5j7h/lib/program.js:6618:36)",
+              "exports.KernelHost.run (/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/tmpjogb5j7h/lib/program.js:6592:48)",
+              "Immediate._onImmediate (/private/var/folders/b1/z2_tspwx0x56ys1g22l9zxgw0000gq/T/tmpjogb5j7h/lib/program.js:6593:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/cipipe-core-stack/wsLustreFs/FsxLustreSecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wsLustreFsFsxLustreSecurityGroup5E9D1F99"
+          }
+        ],
+        "/cipipe-core-stack/wsLustreFs/FsxLustreSecurityGroup/from cipipecorestackwsLustreFsFsxLustreSecurityGroup44FCAEAA:988-1023": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wsLustreFsFsxLustreSecurityGroupfromcipipecorestackwsLustreFsFsxLustreSecurityGroup44FCAEAA988102343CA45BD"
+          }
+        ],
+        "/cipipe-core-stack/wsLustreFs/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wsLustreFs93260754"
+          }
+        ],
         "/cipipe-core-stack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
-          }
-        ],
-        "/cipipe-core-stack/CDKMetadata/Condition": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CDKMetadataAvailable"
           }
         ],
         "/cipipe-core-stack/BootstrapVersion": [

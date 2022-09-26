@@ -16,6 +16,156 @@
         "id": "cipipe-core-stack",
         "path": "cipipe-core-stack",
         "children": {
+          "ComputeVPC": {
+            "id": "ComputeVPC",
+            "path": "cipipe-core-stack/ComputeVPC",
+            "children": {
+              "PublicSubnet1": {
+                "id": "PublicSubnet1",
+                "path": "cipipe-core-stack/ComputeVPC/PublicSubnet1",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.41.0"
+                }
+              },
+              "PublicSubnet2": {
+                "id": "PublicSubnet2",
+                "path": "cipipe-core-stack/ComputeVPC/PublicSubnet2",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.41.0"
+                }
+              },
+              "PublicSubnet3": {
+                "id": "PublicSubnet3",
+                "path": "cipipe-core-stack/ComputeVPC/PublicSubnet3",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.41.0"
+                }
+              },
+              "PublicSubnet4": {
+                "id": "PublicSubnet4",
+                "path": "cipipe-core-stack/ComputeVPC/PublicSubnet4",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.41.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.41.0"
+            }
+          },
+          "FSXSubnet": {
+            "id": "FSXSubnet",
+            "path": "cipipe-core-stack/FSXSubnet",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.41.0"
+            }
+          },
+          "wsLustreFs": {
+            "id": "wsLustreFs",
+            "path": "cipipe-core-stack/wsLustreFs",
+            "children": {
+              "FsxLustreSecurityGroup": {
+                "id": "FsxLustreSecurityGroup",
+                "path": "cipipe-core-stack/wsLustreFs/FsxLustreSecurityGroup",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cipipe-core-stack/wsLustreFs/FsxLustreSecurityGroup/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
+                      "aws:cdk:cloudformation:props": {
+                        "groupDescription": "cipipe-core-stack/wsLustreFs/FsxLustreSecurityGroup",
+                        "securityGroupEgress": [
+                          {
+                            "cidrIp": "0.0.0.0/0",
+                            "description": "Allow all outbound traffic by default",
+                            "ipProtocol": "-1"
+                          }
+                        ],
+                        "vpcId": "vpc-794ad501"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
+                      "version": "2.41.0"
+                    }
+                  },
+                  "from cipipecorestackwsLustreFsFsxLustreSecurityGroup44FCAEAA:988-1023": {
+                    "id": "from cipipecorestackwsLustreFsFsxLustreSecurityGroup44FCAEAA:988-1023",
+                    "path": "cipipe-core-stack/wsLustreFs/FsxLustreSecurityGroup/from cipipecorestackwsLustreFsFsxLustreSecurityGroup44FCAEAA:988-1023",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
+                      "aws:cdk:cloudformation:props": {
+                        "ipProtocol": "tcp",
+                        "description": "from cipipecorestackwsLustreFsFsxLustreSecurityGroup44FCAEAA:988-1023",
+                        "fromPort": 988,
+                        "groupId": {
+                          "Fn::GetAtt": [
+                            "wsLustreFsFsxLustreSecurityGroup5E9D1F99",
+                            "GroupId"
+                          ]
+                        },
+                        "sourceSecurityGroupId": {
+                          "Fn::GetAtt": [
+                            "wsLustreFsFsxLustreSecurityGroup5E9D1F99",
+                            "GroupId"
+                          ]
+                        },
+                        "toPort": 1023
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupIngress",
+                      "version": "2.41.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ec2.SecurityGroup",
+                  "version": "2.41.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "cipipe-core-stack/wsLustreFs/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::FSx::FileSystem",
+                  "aws:cdk:cloudformation:props": {
+                    "fileSystemType": "LUSTRE",
+                    "subnetIds": [
+                      "subnet-e3808aa8"
+                    ],
+                    "lustreConfiguration": {
+                      "deploymentType": "SCRATCH_2"
+                    },
+                    "securityGroupIds": [
+                      {
+                        "Fn::GetAtt": [
+                          "wsLustreFsFsxLustreSecurityGroup5E9D1F99",
+                          "GroupId"
+                        ]
+                      }
+                    ],
+                    "storageCapacity": 1200
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_fsx.CfnFileSystem",
+                  "version": "2.41.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_fsx.LustreFileSystem",
+              "version": "2.41.0"
+            }
+          },
           "CDKMetadata": {
             "id": "CDKMetadata",
             "path": "cipipe-core-stack/CDKMetadata",
@@ -25,14 +175,6 @@
                 "path": "cipipe-core-stack/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
-                  "version": "2.41.0"
-                }
-              },
-              "Condition": {
-                "id": "Condition",
-                "path": "cipipe-core-stack/CDKMetadata/Condition",
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.CfnCondition",
                   "version": "2.41.0"
                 }
               }
